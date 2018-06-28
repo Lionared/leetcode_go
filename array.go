@@ -21,9 +21,6 @@ package leetcode_go
 	It doesn't matter what values are set beyond the returned length.
 */
 func RemoveElement(nums []int, val int) int {
-	if len(nums) <= 0 {
-		return 0
-	}
 	i, j := 0, 0
 	for ; i < len(nums); i++ {
 		if nums[i] == val {
