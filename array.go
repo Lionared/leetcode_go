@@ -1,7 +1,5 @@
 package leetcode_go
 
-import "math"
-
 /**
 No.1. Two Sum | Easy
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -68,7 +66,7 @@ func findM(A, B []int, k int) float64 {
 		return float64(B[k-1])
 	}
 	if k == 1 {
-		return math.Min(float64(A[0]), float64(B[0]))
+		return float64(min(A[0], B[0]))
 	}
 	pa := min(k/2, len(A))
 	pb := k - pa
