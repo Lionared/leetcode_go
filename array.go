@@ -1,5 +1,7 @@
 package leetcode_go
 
+import "math"
+
 /**
 No.1. Two Sum | Easy
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -51,10 +53,40 @@ func twoSum(nums []int, target int) []int {
 */
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	total := len(nums1) + len(nums2)
-	if total%2 == 0 {
-
+	if total&0x1 == 1 {
+		return findM(nums1, nums2, total/2+1)
+	} else {
+		return (findM(nums1, nums2, total/2) + findM(nums1, nums2, total/2+1)) / 2.0
 	}
-	return 0
+}
+
+func findM(A, B []int, k int) float64 {
+	if len(A) > len(B) {
+		return findM(B, A, k)
+	}
+	if len(A) == 0 {
+		return float64(B[k-1])
+	}
+	if k == 1 {
+		return math.Min(float64(A[0]), float64(B[0]))
+	}
+	pa := min(k/2, len(A))
+	pb := k - pa
+	if A[pa-1] < B[pb-1] {
+		return findM(A[pa:], B, k-pa)
+	} else if A[pa-1] > B[pb-1] {
+		return findM(A, B[pb:], k-pb)
+	} else {
+		return float64(A[pa-1])
+	}
+}
+
+func min(a, b int) int {
+	if a > b {
+		return b
+	} else {
+		return a
+	}
 }
 
 /*
