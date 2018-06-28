@@ -50,6 +50,10 @@ func twoSum(nums []int, target int) []int {
     请找出这两个有序数组的中位数。要求算法的时间复杂度为 O(log (m+n)) 。
 */
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
+	total := len(nums1) + len(nums2)
+	if total%2 == 0 {
+
+	}
 	return 0
 }
 
