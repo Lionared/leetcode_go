@@ -11,19 +11,20 @@ Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 */
-func twoSum(nums []int, target int) (ret []int) {
-	i, j := 0, len(nums)-1
-	ret = make([]int, 2)
-	for ; i < len(nums); i++ {
-		for ; j > i; j-- {
-			if nums[i]+nums[j] == target {
-				ret[0] = nums[i]
-				ret[1] = nums[j]
-				return
-			}
+func twoSum(nums []int, target int) []int {
+	ret := make([]int, 2)
+	tmp := make(map[int]int)
+	for index, _ := range nums {
+		x := nums[index]
+		f := target - x
+		if _, ok := tmp[f]; ok {
+			ret[0] = tmp[f]
+			ret[1] = index
+			return ret
 		}
+		tmp[x] = index
 	}
-	return
+	return ret
 }
 
 /*

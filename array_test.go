@@ -5,9 +5,10 @@ import (
 )
 
 func Test_twoSum(t *testing.T) {
-	nums := []int{2, 7, 11, 15}
-	target := 9
-	if found := twoSum(nums, target); found[0] == 2 && found[1] == 7 {
+	//nums := []int{2, 7, 11, 15}
+	nums := []int{5, 7, 2, 4, 3, 6, 1}
+	target := 5
+	if found := twoSum(nums, target); found[0] == 2 && found[1] == 4 {
 		t.Log("twoSum Test Passed!")
 	} else {
 		t.Error("two Sum Test Failed!")
