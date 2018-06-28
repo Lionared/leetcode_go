@@ -1,5 +1,31 @@
 package leetcode_go
 
+/**
+No. 1 Two Sum | easy
+给定一个整数数组和一个目标值，找出数组中和为目标值的两个数。
+你可以假设每个输入只对应一种答案，且同样的元素不能被重复利用。
+Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example:
+Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+*/
+func twoSum(nums []int, target int) (ret []int) {
+	i, j := 0, 1
+	ret = make([]int, 2)
+	for ; i < len(nums); i++ {
+		for ; j < len(nums)-i; j++ {
+			if nums[i]+nums[j] == target {
+				ret[0] = nums[i]
+				ret[1] = nums[j]
+				return
+			}
+		}
+	}
+	return
+}
+
 /*
 	No. 27 Remove Element | easy
 	给定一个数组 nums 和一个值 val，你需要原地移除所有数值等于 val 的元素，返回移除后数组的新长度。
