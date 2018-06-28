@@ -12,10 +12,10 @@ Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].
 */
 func twoSum(nums []int, target int) (ret []int) {
-	i, j := 0, 1
+	i, j := 0, len(nums)-1
 	ret = make([]int, 2)
 	for ; i < len(nums); i++ {
-		for ; j < len(nums)-i; j++ {
+		for ; j > i; j-- {
 			if nums[i]+nums[j] == target {
 				ret[0] = nums[i]
 				ret[1] = nums[j]
