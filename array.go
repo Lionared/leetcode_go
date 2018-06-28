@@ -1,5 +1,17 @@
 package leetcode_go
 
+import "fmt"
+
+func JosephProblem(n, m int) int {
+	winner := 0
+	for i := 2; i <= n; i++ {
+		winner = (winner + m) % i
+		fmt.Printf("Turn %d now And temp now is %d\n", i, winner)
+	}
+	winner += 1
+	return winner
+}
+
 /**
 No.1. Two Sum | Easy
 Given an array of integers, return indices of the two numbers such that they add up to a specific target.

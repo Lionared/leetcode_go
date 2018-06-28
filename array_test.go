@@ -4,6 +4,12 @@ import (
 	"testing"
 )
 
+func Test_JosephProblem(t *testing.T) {
+	n, m := 5, 3
+	winner := JosephProblem(n, m)
+	t.Log("JosephProblem Winner is", winner)
+}
+
 func Test_twoSum(t *testing.T) {
 	//nums := []int{2, 7, 11, 15}
 	nums := []int{5, 7, 2, 4, 3, 6, 1}
