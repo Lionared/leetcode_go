@@ -25,8 +25,8 @@ func JosephOuter(n, m, rate int) int {
 	if rate == 1 {
 		return (n + m - 1) % n
 	} else {
-		ret := JosephOuter(n-1, m, rate-1)
-		return (ret + m) % n
+		//old_num := JosephOuter(n-1, m, rate-1)
+		return (JosephOuter(n-1, m, rate-1) + m) % n
 	}
 }
 
