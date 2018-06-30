@@ -5,7 +5,7 @@ import (
 )
 
 func TestJosephProblem(t *testing.T) {
-	n, m := 5, 3
+	n, m := 9, 4
 	winner := JosephProblem(n, m)
 	t.Log("JosephProblem Winner is", winner)
 }
@@ -61,7 +61,7 @@ func TestMaxArea(t *testing.T) {
 15.
 */
 func TestThreeSum(t *testing.T) {
-	nums := []int{-1, 0, 1, 2, -1, -4}
+	nums := []int{5, 4, 3, 2, 2, 1, 1, 0, 0, -1, -1, -2, -2, -3, -5}
 	result := ThreeSum(nums)
 	t.Log("ThreeSum is:", result)
 }
@@ -70,7 +70,7 @@ func TestThreeSum(t *testing.T) {
 27.
 */
 func TestRemoveElement(t *testing.T) {
-	nums := []int{0, 1, 2, 2, 3, 0, 4, 2}
+	nums := []int{-1, -1, 0, 0, 1, 1}
 	val := 2
 	if newLength := RemoveElement(nums, val); newLength != 5 {
 		t.Error("RemoveElement failed!")

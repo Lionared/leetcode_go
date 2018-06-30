@@ -167,20 +167,26 @@ A solution set is:
 */
 func ThreeSum(nums []int) [][]int {
 	sort.Ints(nums)
-	start := len(nums) / 2
-	fixed := nums[start]
-	target := 0 - fixed
-	left, right := start, start
-	if nums[left] > 0 {
-		left--
+	length := len(nums)
+	ret := [][]int{}
+	for start := 0; start < length-2; start++ {
+		for left := start + 1; left < length-1; left++ {
+			for right := length - 1; right > left; right-- {
+				if nums[start]+nums[left]+nums[right] == 0 {
+					exist := false
+					for _, v := range ret {
+						if v[0] == nums[start] && v[1] == nums[left] && v[2] == nums[right] {
+							exist = true
+						}
+					}
+					if exist == false {
+						ret = append(ret, []int{nums[start], nums[left], nums[right]})
+					}
+				}
+			}
+		}
 	}
-	if nums[right] < 0 {
-		right++
-	}
-	for left > 0 && right < len(nums) {
-		target++
-	}
-	return [][]int{}
+	return ret
 }
 
 /*
