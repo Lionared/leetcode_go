@@ -177,6 +177,7 @@ func ThreeSum(nums []int) [][]int {
 					for _, v := range ret {
 						if v[0] == nums[start] && v[1] == nums[left] && v[2] == nums[right] {
 							exist = true
+							break
 						}
 					}
 					if exist == false {
