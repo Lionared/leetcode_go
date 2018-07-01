@@ -61,7 +61,9 @@ func TestMaxArea(t *testing.T) {
 15.
 */
 func TestThreeSum(t *testing.T) {
-	nums := []int{5, 4, 3, 2, 2, 1, 1, 0, 0, -1, -1, -2, -2, -3, -5}
+	nums := []int{-2, 0, 0, 2, 2}
+	//nums := []int{0,0,0,0}
+	//nums := []int{-1, 0, 1, 2, -1, -4}
 	result := ThreeSum(nums)
 	t.Log("ThreeSum is:", result)
 }

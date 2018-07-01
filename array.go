@@ -170,21 +170,26 @@ func ThreeSum(nums []int) [][]int {
 	length := len(nums)
 	ret := [][]int{}
 	for start := 0; start < length-2; start++ {
-		for left := start + 1; left < length-1; left++ {
-			for right := length - 1; right > left; right-- {
-				if nums[start]+nums[left]+nums[right] == 0 {
-					exist := false
-					for _, v := range ret {
-						if v[0] == nums[start] && v[1] == nums[left] && v[2] == nums[right] {
-							exist = true
-							break
-						}
-					}
-					if exist == false {
-						ret = append(ret, []int{nums[start], nums[left], nums[right]})
-					}
+		left, right := start+1, length-1
+		for left < right {
+			if nums[start]+nums[left]+nums[right] == 0 {
+				ret = append(ret, []int{nums[start], nums[left], nums[right]})
+				left++
+				right--
+				for left < right && nums[left] == nums[left-1] {
+					left++
 				}
+				for left < right && nums[right] == nums[right+1] {
+					right--
+				}
+			} else if nums[start]+nums[left]+nums[right] < 0 {
+				left++
+			} else {
+				right--
 			}
+		}
+		for start < length-2 && nums[start+1] == nums[start] {
+			start++
 		}
 	}
 	return ret
